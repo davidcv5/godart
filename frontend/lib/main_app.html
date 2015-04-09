@@ -1,0 +1,35 @@
+<!--
+  Copyright (c) 2015, <your name>. All rights reserved. Use of this source code
+  is governed by a BSD-style license that can be found in the LICENSE file.
+-->
+
+<!-- import polymer-element's definition -->
+<link rel="import" href="../../packages/polymer/polymer.html">
+
+<link rel="import" href="../../packages/paper_elements/paper_input.html">
+
+<polymer-element name="main-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+        paper-button.colored{
+            background: #4285f4;
+            color: #fff;
+        }
+    </style>
+
+    <paper-input id="greeting-text" label="Type a greeting..." value="{{ comment }}"></paper-input>
+    <paper-button id="add-greeting" raised class="colored" role="button" on-click="{{ addComment }}">Add</paper-button>
+
+    <div>Total Greetings: {{ total }}</div>
+    <ul>
+        <template repeat="{{ greeting in greetings.items }}">
+          <li>{{ greeting.author }} wrote {{ greeting.content }}</li>
+        </template>
+    </ul>
+
+  </template>
+  <script type="application/dart" src="main_app.dart"></script>
+</polymer-element>
